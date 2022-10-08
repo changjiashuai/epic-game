@@ -33,6 +33,5 @@ npx hardhat verify {contract_address} --network goerli
 https://nft-game-project.jiashuaichang.repl.co/
 ```
 
-### Screenshot
-
-[//]: # (![运行截图]&#40;imgs/screenshot.png&#41;)
+### UI
+[UI Project](https://github.com/changjiashuai/nft-game-project)
