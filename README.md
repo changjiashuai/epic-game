@@ -12,3 +12,27 @@ REPORT_GAS=true npx hardhat test
 npx hardhat node
 npx hardhat run scripts/deploy.js
 ```
+
+### Run test case
+```shell
+npx hardhat run scripts/run.js
+```
+
+### Deploy contract
+```shell
+npx hardhat run scripts/deploy.js --network goerli
+```
+
+### Open source
+```shell
+npx hardhat verify {contract_address} --network goerli
+```
+
+### Project url
+```
+https://nft-game-project.jiashuaichang.repl.co/
+```
+
+### Screenshot
+
+[//]: # (![运行截图]&#40;imgs/screenshot.png&#41;)
