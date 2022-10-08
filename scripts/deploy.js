@@ -7,25 +7,25 @@
 const hre = require("hardhat");
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;
-  const unlockTime = currentTimestampInSeconds + ONE_YEAR_IN_SECS;
 
-  const lockedAmount = hre.ethers.utils.parseEther("1");
-
-  const Lock = await hre.ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
-
-  await lock.deployed();
-
-  console.log(
-    `Lock with 1 ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
-  );
+    const gameContractFactory = await hre.ethers.getContractFactory('MyEpicGame');
+    const gameContract = await gameContractFactory.deploy(
+        ["Monster", "Tifa", "Groot"],
+        ["https://i.imgur.com/c25eTQU.jpeg", "https://i.imgur.com/73MgFkV.jpeg", "https://i.imgur.com/qLyTY82.gif"],
+        [100, 200, 300],
+        [100, 50, 25],
+        "Flerken", // Boss name
+        "https://i.imgur.com/oJv9KJj.jpeg", // Boss image
+        10000, // Boss hp
+        50 // Boss attack damage
+    );
+    await gameContract.deployed();
+    console.log("Contract deployed to:", gameContract.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
 main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
+    console.error(error);
+    process.exitCode = 1;
 });
